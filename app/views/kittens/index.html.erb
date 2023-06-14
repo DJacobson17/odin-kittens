@@ -1,7 +1,9 @@
+
+<%= link_to "Create new Kitty", new_kitten_path %>
 <h1>Kittens</h1>
 <% @kittens.each do |kitten| %>
-  <p>Name: <%= kitten.name %>
-    <%# <%= link_to "Show", kitten_path(kittten) %>
-    <%# <%= button_to "Delete", kitten_path(kitten), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete %>
+  <p>Name: <%= kitten.name %><br>
+    <%= link_to "Show", kitten_path(kitten.id) %>
+    <%= button_to "Delete", kitten_path(kitten), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete %>
   </p>
 <% end %>
