@@ -39,18 +39,18 @@ class KittensController < ApplicationController
   def update
     kitten = Kitten.find(params[:id])
     kitten.update!(kit_params)
-    flash[:success] = 'Kitten successfully updates.'
     redirect_to kitten
+    flash[:success] = 'Kitten successfully updates.'
   end
 
   def destroy
     @kitten = Kitten.find(params[:id])
     if @kitten.destroy
-      flash[:success] = 'Kitten successfully destroyed.'
       redirect_to kittens_path
+      flash[:success] = 'Kitten successfully destroyed.'
     else
-      flash[:error] = 'Failed to destroy kitten.'
       redirect_back(fallback_location: root_path)
+      flash[:error] = 'Failed to destroy kitten.'
     end
   end
 
